@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'navigate to' do
 
     before do 
-        @user = User.create(email: "test@mail.com", password:"123456789", password_confirmation:"123456789", first_name: "jhon", last_name:"snow")
+        @user = FactoryGirl.create(:user)
         login_as(@user, :scope => :user)
     end
 
@@ -18,10 +18,10 @@ describe 'navigate to' do
         expect(page).to have_content(/Posts/)
     end
     it "has a list of posts" do 
-        p1 = Post.create(date: Date.today, rationale: "p1", user_id: @user.id)
-        p2 = Post.create(date: Date.today, rationale: "p2", user_id: @user.id)
+        p1 = FactoryGirl.create(:post)
+        p2 = FactoryGirl.create(:second_post)
         visit posts_path # ORDER IS IMPORTANT DUMBASS
-        expect(page).to have_content(/p1|p2/)
+        expect(page).to have_content(/P1|P2/)
     end
   end
 
