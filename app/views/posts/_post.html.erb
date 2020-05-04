@@ -11,4 +11,9 @@
 	<td>
         <%= truncate post.user.full_name %>
 	</td>
+	<td>
+		<%= link_to "Show" , post_path(post.id), id: "show_#{post.id}"%> |
+		<%= link_to "Edit" , edit_post_path(post.id), id: "edit_#{post.id}"%>
+	</td>
 </tr>
+
