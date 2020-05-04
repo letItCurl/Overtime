@@ -10,6 +10,9 @@
             <%= link_to "Edit details", edit_user_registration_path %>
         </li>
         <li class="nav-item">
+            <%= link_to "New entry", new_post_path, id: "new_post_nav_link" %>
+    	</li>
+        <li class="nav-item">
             <%= link_to "Log out", destroy_user_session_path, method: :delete %>
     	</li>
     </ul>
