@@ -32,6 +32,16 @@ describe 'navigate to' do
         expect(page.status_code).to eq(200)
     end
   end
+
+  describe "delete" do
+    it "can be deleted" do
+        @post = FactoryGirl.create(:post)
+        visit posts_path
+        click_link("delete_post_#{@post.id}_link")
+        expect(Post.find_by_id(@post.id)).to eq(nil)
+        expect(page.status_code).to eq(200)
+    end
+  end
   describe 'creation' do
     before do
         visit new_post_path

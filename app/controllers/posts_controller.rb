@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-    before_action :set_post, only: [:show, :edit, :update]
+    before_action :set_post, only: [:show, :edit, :update, :destroy]
 
     def index
         @posts = Post.all
@@ -31,8 +31,13 @@ class PostsController < ApplicationController
         if @post.update(post_params)
             redirect_to @post, notice: "Your post was created successfully"
         else
-            render :edit
+            render posts_path
         end
+    end
+
+    def destroy
+        @post.delete
+        redirect_to posts_path
     end
 
     private
