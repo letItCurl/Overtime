@@ -16,4 +16,9 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
- @import "posts.scss"
+ @import "posts.scss";
+
+ .mx-2{
+     margin-top: 2rem;
+     margin-bottom: 2rem;
+ }
