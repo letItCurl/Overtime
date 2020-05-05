@@ -7,7 +7,7 @@
             <%= link_to "Time entries", posts_path %>
     	</li>
     	<li class="nav-item <%=active?("/admin")%>">
-            <%= link_to "Admin dashboard" %>
+            <%= link_to "Admin dashboard", admin_root_path %>
         </li>
         <li class="nav-item <%=active?(new_post_path)%>">
             <%= link_to "New entry", new_post_path, id: "new_post_nav_link" %>
