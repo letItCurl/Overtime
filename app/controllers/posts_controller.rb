@@ -29,7 +29,7 @@ class PostsController < ApplicationController
 
     def update
         if @post.update(post_params)
-            redirect_to @post, notice: "Your post was created successfully"
+            redirect_to @post, notice: "Your post was updated successfully"
         else
             render posts_path
         end
