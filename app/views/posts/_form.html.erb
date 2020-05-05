@@ -1,4 +1,10 @@
 <%= form_for @post do |f| %>
+    <%if @post.errors.any? %>
+        <% @post.errors.full_messages.each do |e|%>
+            <%= js add_gritter(e, title: "Error:", time: 3000)%>
+        <%end%>
+    <%end%>
+    
     <div class="form-group">
         <%= f.label :date%>
         <%= f.text_field :date, class:"form-control" %>
