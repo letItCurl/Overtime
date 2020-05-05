@@ -12,8 +12,19 @@ puts "User created:"
 puts "mail: test@test.com"
 puts "password: 123456789"
 
+admin = AdminUser.create!(email: "admin@mail.com", password: "123456789", password_confirmation: "123456789", last_name: "admin", first_name:"admin")
+
+puts "Admin created:"
+puts "mail: admin@mail.com"
+puts "password: 123456789"
+
 100.times do |p|
     Post.create!(date: Date.today, rationale: "#{p} rationale content", user_id: user.id)
 end
+puts "100 admin's post created"
 
-puts "100 post created"
+100.times do |p|
+    Post.create!(date: Date.today, rationale: "#{p} rationale content", user_id: admin.id)
+end
+
+puts "100 admin's post created"
