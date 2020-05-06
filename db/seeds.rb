@@ -5,27 +5,36 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+def status
+    status_map={
+        0 => "submitted",
+        1 => "approved",
+        2 => "rejected"
+    }
+    status_map[rand(0..2.5).floor]
+end
 
-user = User.create!(email: "jhon@snow.com", password: "123456789", password_confirmation: "123456789", last_name: "Jhon", first_name:"Snow")
+user = User.create!(email: "bot@mail.com", password: "123456789", password_confirmation: "123456789", last_name: "bot", first_name:"bot")
 
 puts "User created:"
-puts "mail: test@test.com"
+puts "mail: bot@mail.com"
 puts "password: 123456789"
 
-admin = AdminUser.create!(email: "admin@mail.com", password: "123456789", password_confirmation: "123456789
-", last_name: "admin", first_name:"admin")
+admin = AdminUser.create!(email: "admin@mail.com", password: "123456789", password_confirmation: "123456789", last_name: "admin", first_name:"admin")
 
 puts "Admin created:"
 puts "mail: admin@mail.com"
 puts "password: 123456789"
 
+
+
 100.times do |p|
-    Post.create!(date: Date.today, rationale: "#{p} rationale content", user_id: user.id)
+    Post.create!(date: Date.today, rationale: "#{p} rationale content", user_id: user.id, overtime_request: p/15, status: status)
 end
 puts "100 user's post created"
 
 100.times do |p|
-    Post.create!(date: Date.today, rationale: "#{p} rationale content", user_id: admin.id)
+    Post.create!(date: Date.today, rationale: "#{p} rationale content", user_id: admin.id, overtime_request: p/15, status: status)
 end
 
 puts "100 admin's post created"
