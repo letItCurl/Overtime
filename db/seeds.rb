@@ -29,12 +29,12 @@ puts "password: 123456789"
 
 
 100.times do |p|
-    Post.create!(date: Date.today, rationale: "#{p} rationale content", user_id: user.id, overtime_request: p/15, status: status)
+    Post.create!(date: Date.today, rationale: "#{p} rationale content", user_id: user.id, overtime_request: 0.1+p/15, status: status)
 end
 puts "100 user's post created"
 
 100.times do |p|
-    Post.create!(date: Date.today, rationale: "#{p} rationale content", user_id: admin.id, overtime_request: p/15, status: status)
+    Post.create!(date: Date.today, rationale: "#{p} rationale content", user_id: admin.id, overtime_request: 0.1+p/15, status: status)
 end
 
 puts "100 admin's post created"

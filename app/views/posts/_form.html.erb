@@ -4,7 +4,10 @@
             <%= js add_gritter(e, title: "Error:", time: 3000)%>
         <%end%>
     <%end%>
-    
+    <div class="form-group">
+        <%= f.label :overtime_request%>
+        <%= f.number_field :overtime_request, step:"0.01", class:"form-control" %>
+    </div>
     <div class="form-group">
         <%= f.label :date%>
         <%= f.text_field :date, class:"form-control" %>
@@ -13,6 +16,7 @@
         <%= f.label :rationale%>
         <%= f.text_area :rationale, class:"form-control" %>
     </div>
+    
     <%= render partial: "status", locals:{f: f} if current_user.type == "AdminUser" %>
     <%= f.submit 'Save', class:"btn btn-primary btn-block" %>
 <% end %>
