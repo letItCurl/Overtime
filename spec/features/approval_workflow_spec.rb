@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'navigate' do 
+describe 'Approval workflow:' do 
     before do
         @admin = FactoryGirl.create(:admin_user)
         login_as(@admin, :scope => :user)
@@ -25,6 +25,17 @@ describe 'navigate' do
             visit edit_post_path(@post)
 
             expect(page).to_not have_content('Approved')
+        end
+
+        it 'should not be editable by the post creator if status is approved' do
+            logout(:user)
+            @user = FactoryGirl.create(:user_with_posts)
+            login_as(@user, :scope => :user)
+            visit posts_path
+            @post = @user.posts.last
+            @post.approved!
+            visit edit_post_path(@post)
+            expect(current_path).to eq(root_path)
         end
     end
 end
