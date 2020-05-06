@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'navigate to' do
 
     before do 
-        @user = FactoryGirl.create(:user)
+        @user = FactoryGirl.create(:user_with_posts)
         login_as(@user, :scope => :user)
     end
 
@@ -18,10 +18,15 @@ describe 'navigate to' do
         expect(page).to have_content(/Posts/)
     end
     it "has a list of posts" do 
-        p1 = FactoryGirl.create(:post)
-        p2 = FactoryGirl.create(:second_post)
         visit posts_path # ORDER IS IMPORTANT DUMBASS
-        expect(page).to have_content(/P1|P2/)
+        expect(page).to have_content(/#{@user.posts.pluck(:rationale).join("|")}/)
+    end
+    it "has can't see list of other user posts" do 
+        logout(:user)
+        @user_2 = FactoryGirl.create(:user)
+        login_as(@user_2, :scope => :user)
+        visit posts_path # ORDER IS IMPORTANT DUMBASS
+        expect(page).to_not have_content(/#{@user.posts.pluck(:rationale).join("|")}/)
     end
   end
 
@@ -35,11 +40,11 @@ describe 'navigate to' do
 
   describe "delete" do
     it "can be deleted" do
-        @post = FactoryGirl.create(:post)
+        @post = @user.posts.first
         visit posts_path
         click_link("delete_post_#{@post.id}_link")
-        expect(Post.find_by_id(@post.id)).to eq(nil)
-        expect(page.status_code).to eq(200)
+        expect(page).to_not have_content(@post.rationale)
+        expect(@user.reload.posts).to_not include(@post)
     end
   end
   describe 'creation' do
