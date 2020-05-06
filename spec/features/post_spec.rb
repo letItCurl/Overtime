@@ -65,7 +65,10 @@ describe 'navigate to' do
 
   describe 'edit' do
     before do
-        @post = FactoryGirl.create(:post)
+        logout :user
+        @user = FactoryGirl.create(:user_with_posts)
+        @post = @user.posts.first
+        login_as(@user, :scope => :user)
     end
     it 'can be reached by clicking edit on index page' do
         visit posts_path
@@ -80,6 +83,13 @@ describe 'navigate to' do
         click_on "Save"
         
         expect(page.status_code).to eq(200)
+    end
+    it "cannot be edit by non auth(pundit) user" do 
+        logout :user
+        @non_auth = FactoryGirl.create(:non_auth)
+        login_as(@non_auth, :scope => :user)
+        visit edit_post_path(@post)
+        expect(current_path).to eq(root_path)
     end
 
   end
