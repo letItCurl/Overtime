@@ -71,3 +71,4 @@ gem 'administrate', '~> 0.13.0'
 gem 'pundit', '~> 2.1'
 gem 'font-awesome-sass', '~> 5.12.0'
 gem 'twilio-ruby', '~> 5.34'
+gem 'dotenv-rails','~> 2.7', '>= 2.7.5', groups: [:development, :test]
