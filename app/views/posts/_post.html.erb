@@ -3,10 +3,10 @@
 		<%= post.id %>
 	</td>
 	<td>
-		<%= link_to post.overtime_request, post_path(@posts)  %>
+		<%= post.overtime_request %>
 	</td>
 	<td>
-		<%= truncate post.rationale %>
+		<%= link_to truncate(post.rationale), post_path(post)  %>
 	</td>
 	<td>
         <%= post.date %>
