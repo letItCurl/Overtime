@@ -9,7 +9,7 @@ FactoryGirl.define do
     email {generate :email}
     password "123456789"
     password_confirmation "123456789"
-
+    phone "65446545"
     factory :user_with_posts do
       ignore do
         posts_count 5
@@ -36,6 +36,7 @@ FactoryGirl.define do
       email {generate :email}
       password "123456789"
       password_confirmation "123456789"
+      phone "65446545"
   end
 
   factory :non_auth, class: "User" do
@@ -44,6 +45,7 @@ FactoryGirl.define do
     email {generate :email}
     password "123456789"
     password_confirmation "123456789"
+    phone "65446545"
   end
 end
   

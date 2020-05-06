@@ -20,7 +20,8 @@ class UserDashboard < Administrate::BaseDashboard
     type: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    password: Field::String
+    password: Field::String,
+    phone: Field::String
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -32,6 +33,7 @@ class UserDashboard < Administrate::BaseDashboard
   id
   posts
   email
+  phone
   type
   ].freeze
 
@@ -50,6 +52,7 @@ class UserDashboard < Administrate::BaseDashboard
   type
   created_at
   updated_at
+  phone
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -60,6 +63,7 @@ class UserDashboard < Administrate::BaseDashboard
   first_name
   last_name
   password
+  phone
   ].freeze
 
   # COLLECTION_FILTERS

@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 def status
     status_map={
         0 => "submitted",
@@ -14,13 +15,23 @@ def status
     status_map[rand(0..2.5).floor]
 end
 
-user = User.create!(email: "bot@mail.com", password: "123456789", password_confirmation: "123456789", last_name: "bot", first_name:"bot")
+user = User.create!(email: "bot@mail.com", 
+                        password: "123456789", 
+                        password_confirmation: "123456789", 
+                        last_name: "bot", 
+                        first_name:"bot",
+                        phone: "0783179822")
 
 puts "User created:"
 puts "mail: bot@mail.com"
 puts "password: 123456789"
 
-admin = AdminUser.create!(email: "admin@mail.com", password: "123456789", password_confirmation: "123456789", last_name: "admin", first_name:"admin")
+admin = AdminUser.create!(email: "admin@mail.com", 
+                        password: "123456789", 
+                        password_confirmation: "123456789", 
+                        last_name: "admin", 
+                        first_name:"admin",
+                        phone: "0783179822")
 
 puts "Admin created:"
 puts "mail: admin@mail.com"
