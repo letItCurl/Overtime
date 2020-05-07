@@ -20,18 +20,28 @@ user = User.create!(email: "bot@mail.com",
                         password_confirmation: "123456789", 
                         last_name: "bot", 
                         first_name:"bot",
-                        phone: "0783179822")
+                        phone: "1234567890")
 
 puts "User created:"
 puts "mail: bot@mail.com"
 puts "password: 123456789"
+
+75.times do |audit_log|
+    AuditLog.create!(
+                    user_id: user.id, 
+                    status: 0,
+                    start_date: (Date.today - 6.days)
+                    )
+end
+
+puts "75 AuditLog created"
 
 admin = AdminUser.create!(email: "admin@mail.com", 
                         password: "123456789", 
                         password_confirmation: "123456789", 
                         last_name: "admin", 
                         first_name:"admin",
-                        phone: "0783179822")
+                        phone: "1234567890")
 
 puts "Admin created:"
 puts "mail: admin@mail.com"
