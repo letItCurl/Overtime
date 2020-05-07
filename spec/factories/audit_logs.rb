@@ -4,5 +4,8 @@ FactoryGirl.define do
     status 1
     start_date (Date.today - 6.days)
     end_date nil
+    factory :audit_log_salted do
+      start_date nil
+    end
   end
 end
