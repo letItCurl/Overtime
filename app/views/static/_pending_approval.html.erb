@@ -4,6 +4,6 @@
     <h6 class="card-subtitle mb-2 text-muted">Overtime request: <%= pending_approval.overtime_request %></h6>
     <p class="card-text"><%= pending_approval.rationale.truncate(30, separator: ' ') %></p>
   </div>
-	<%= link_to "Review", root_path, class:"btn btn-warning" %>
-	<%= link_to "Approve", root_path, class:"btn btn-success" %>
+	<%= link_to "Review", edit_post_path(pending_approval), class:"btn btn-warning", id:"review_btn_#{pending_approval.id}" %>
+	<%= link_to "Approve", approve_post_path(pending_approval), class:"btn btn-success", id:"approve_btn_#{pending_approval.id}" %>
 </div>
