@@ -19,10 +19,10 @@
 			</th>
 		</tr>
 	</thead>
-    <tbody>
+    <tbody id="#audit_logs">
         <%= render @audit_logs %>
     </tbody>
 </table>
-<div class="text-center">
+<div id="paginator" class="text-center">
 	<%= paginate @audit_logs %>
 </div>

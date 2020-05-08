@@ -1,7 +1,13 @@
 module ApplicationHelper
+    
+    def admin_types
+        ["AdminUser"]
+    end
+    
     def active?(path)
         "active" if current_page?(path)
     end
+
     def status_label status
         tag = {
         "approved" => content_tag(:span, status, class: "label label-success"),
@@ -12,4 +18,5 @@ module ApplicationHelper
         }
         tag[status]
     end
+    
 end

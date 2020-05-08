@@ -29,7 +29,7 @@ puts "password: 123456789"
 75.times do |audit_log|
     AuditLog.create!(
                     user_id: user.id, 
-                    status: 0,
+                    status: rand(0..1.0).round,
                     start_date: (Date.today - 6.days)
                     )
 end
