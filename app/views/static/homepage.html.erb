@@ -1,6 +1,6 @@
+<h1>Hi <%= current_user.first_name %> </h1>
 <% if admin_types.include? current_user.try(:type) %>
 	<%= render 'admin' %>
 <% else%>
 	<%= render 'employee' %>
 <% end%>
-

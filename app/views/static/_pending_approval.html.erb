@@ -1,0 +1,9 @@
+<div class="card card-custom">
+  <div class="card-body">
+    <h5 class="card-title">Employee: <%= pending_approval.user.full_name %></h5>
+    <h6 class="card-subtitle mb-2 text-muted">Overtime request: <%= pending_approval.overtime_request %></h6>
+    <p class="card-text"><%= pending_approval.rationale.truncate(30, separator: ' ') %></p>
+  </div>
+	<%= link_to "Review", root_path, class:"btn btn-warning" %>
+	<%= link_to "Approve", root_path, class:"btn btn-success" %>
+</div>

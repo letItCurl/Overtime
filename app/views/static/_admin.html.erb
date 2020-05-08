@@ -1,1 +1,10 @@
-<h1>Hi <%= current_user.first_name %> | log as <%= current_user.type %> </h1>
+<p>Logged as: <%= current_user.type %></p>
+ 
+<div class="row">
+	<div class="col-md-12">
+		<div class="content-box">
+            <%= render partial: "pending_approval", collection: @pending_approvals %>
+        </div>
+    </div>
+</div>
+
