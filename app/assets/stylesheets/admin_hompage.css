@@ -12,9 +12,13 @@
 .card-custom:hover{
     box-shadow: 15px 15px 10px 1px rgba(85, 85, 85, 0.2);
 }
-
 .content-box{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
+@media only screen and (max-width: 1000px) {
+    .card-custom{
+        width: 100%;
+    }
+  }
