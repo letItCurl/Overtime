@@ -1,10 +1,25 @@
 <p>Logged as: <%= current_user.type %></p>
-<p>pending approval:</p>
+<hr>
+<h2>Pending approvals:</h2>
 <div class="row">
 	<div class="col-md-12">
 		<div class="content-box">
             <%= render partial: "pending_approval", collection: @pending_approvals %>
         </div>
+        <div class="text-center">
+            <%= link_to 'View all overtimes', posts_path, class:"btn btn-primary" %>        
+        </div>
     </div>
 </div>
-
+<hr>
+<h2>Audit logs:</h2>
+<div class="row">
+	<div class="col-md-12">
+		<div class="content-box">
+            <%= render partial: "recent_audit_item", collection: @recent_audit_items %>
+        </div>
+        <div class="text-center">
+            <%= link_to 'View all logs', audit_logs_path, class:"btn btn-primary" %>        
+        </div>
+    </div>
+</div>
