@@ -6,4 +6,11 @@ class Post < ApplicationRecord
     validates :overtime_request, numericality: { greater_than: 0 }
 
     scope :post_by, ->(user) { user.type == "AdminUser" ? all : where(user_id: user.id)}
+
+    after_save :update_audit_log
+    private
+    def update_audit_log 
+        @audit_log = AuditLog.where(user_id: self.user.id, start_date: (self.date - 7.days..self.date)).last
+        @audit_log.confirmed!
+    end
 end
