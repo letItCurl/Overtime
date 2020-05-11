@@ -26,4 +26,13 @@ describe "Homepage" do
         visit approve_post_path(@post)
         expect(@post.reload.status).to_not eq("approved")
     end
+    it 'allow the admin to approve posts from the home page' do 
+        logout(:user)
+        @user = FactoryGirl.create(:user)
+        @audit_log = FactoryGirl.create(:audit_log, user: @user)
+        login_as(@user, :scope => :user)        
+        visit root_path
+        click_on "confirm_#{@audit_log.id}"
+        expect(@audit_log.reload.status).to eq('confirmed')
+    end
 end
