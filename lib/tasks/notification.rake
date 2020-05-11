@@ -1,8 +1,9 @@
 namespace :notification do
   desc "Sends SMS notification to employee asking them to log if they had overtime"
   task sms: :environment do
-    User.all.each do |user|
-      SmsTool.send_sms()
+    @msg = "Please, log into the overtime managment app to request / confirm your overtimes"
+    EmployeeUser.all.each do |employee|
+      SmsTool.send_sms(number: employee.phone, message: @msg)
     end
   end
 

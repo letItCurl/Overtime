@@ -15,7 +15,7 @@ def status
     status_map[rand(0..2.5).floor]
 end
 
-user = User.create!(email: "bot@mail.com", 
+user = EmployeeUser.create!(email: "bot@mail.com", 
                         password: "123456789", 
                         password_confirmation: "123456789", 
                         last_name: "bot", 
