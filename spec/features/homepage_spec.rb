@@ -30,6 +30,7 @@ describe "Homepage" do
         logout(:user)
         @user = FactoryGirl.create(:user)
         @audit_log = FactoryGirl.create(:audit_log, user: @user)
+        @audit_log.pending!
         login_as(@user, :scope => :user)        
         visit root_path
         click_on "confirm_#{@audit_log.id}"

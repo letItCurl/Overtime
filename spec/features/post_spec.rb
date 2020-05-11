@@ -14,9 +14,6 @@ describe 'navigate to' do
     it "can be reached" do
         expect(page.status_code).to eq(200)
     end
-    it "has a title of Posts" do
-        expect(page).to have_content(/Posts/)
-    end
     it "has a list of posts" do 
         visit posts_path # ORDER IS IMPORTANT DUMBASS
         expect(page).to have_content(/#{@user.posts.pluck(:rationale).join("|")}/)
