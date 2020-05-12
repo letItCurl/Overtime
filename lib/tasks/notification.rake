@@ -16,6 +16,5 @@ namespace :notification do
         ManagerMailer.email(admin).deliver
       end
     end
-
   end
 end
