@@ -1,7 +1,4 @@
 # Overtime app
->app in development...
-
-***App that track salaried owertime each week***
 
 # About me
 
