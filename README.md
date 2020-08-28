@@ -1,4 +1,5 @@
 # Overtime app
+> ruby on rails training
 
 # About me
 
